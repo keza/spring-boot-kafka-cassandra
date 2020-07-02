@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+
+  producer:
+    build: producer
+    container_name: producer
+    ports:
+      - 8080:8080
+
+  consumer:
+    build: consumer
+    container_name: consumer
+    depends_on:
+      - producer
+    ports:
+      - 8090:8090
