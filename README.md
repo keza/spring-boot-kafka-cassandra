@@ -1,5 +1,5 @@
 ### Set up
 
-    mvn clean install
+    mvn clean install -DskipTests
 
     docker-compose up --build -d
