@@ -22,7 +22,7 @@ public class User {
 
     private String phoneNumber;
 
-    private List<Integer> followerList;
+    private List<UUID> followerList;
 
     private Long cratedAt;
 }

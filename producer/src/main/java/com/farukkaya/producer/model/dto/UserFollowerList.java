@@ -10,5 +10,5 @@ public class UserFollowerList {
 
     private UUID id;
 
-    private List<Integer> followerList;
+    private List<UUID> followerList;
 }
