@@ -49,6 +49,7 @@ services:
   producer:
     build: producer
     container_name: producer
+    entrypoint: /wait-for-it.sh cassandra:9042 -- java -jar app.jar
     depends_on:
       - kafka
       - cassandra
