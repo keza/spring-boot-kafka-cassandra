@@ -6,8 +6,13 @@ spring:
       bootstrap-servers: kafka:9092
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-    consumer:
-      bootstrap-servers: kafka:9092
-      group-id: test1
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  data:
+    cassandra:
+      port: 9042
+      contact-points: cassandra
+      keyspace-name: userspace
+      schema-action: create_if_not_exists
+      user-name: cassandra
+      password: cassandra
+      local-datacenter: datacenter1
+

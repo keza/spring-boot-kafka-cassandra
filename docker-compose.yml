@@ -4,6 +4,8 @@ services:
 
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
+    logging:
+      driver: none
     container_name: zookeeper
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
@@ -11,6 +13,8 @@ services:
 
   kafka:
     image: confluentinc/cp-kafka:latest
+    logging:
+      driver: none
     container_name: kafka
     depends_on:
       - zookeeper
@@ -26,11 +30,28 @@ services:
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
+  cassandra:
+    image: cassandra:latest
+    container_name: cassandra
+    ports:
+      - 9042:9042
+    volumes:
+      - "./cassandra-init.sh:/cassandra-init.sh"
+    command: "sh /cassandra-init.sh"
+    healthcheck:
+      test: ["CMD-SHELL", "[ $$(nodetool statusgossip) = running ]"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+#      - "9160:9160"
+#      - "7199:7199"
+
   producer:
     build: producer
     container_name: producer
     depends_on:
       - kafka
+      - cassandra
     ports:
       - 8080:8080
 
@@ -39,6 +60,7 @@ services:
     container_name: consumer
     depends_on:
       - kafka
+      - cassandra
       - producer
     ports:
       - 8090:8090
