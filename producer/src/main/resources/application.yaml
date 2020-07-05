@@ -15,4 +15,3 @@ spring:
       user-name: cassandra
       password: cassandra
       local-datacenter: datacenter1
-

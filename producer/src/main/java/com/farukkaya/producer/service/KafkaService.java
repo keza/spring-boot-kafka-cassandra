@@ -21,7 +21,7 @@ public class KafkaService {
 
         try {
             String json = new ObjectMapper().writeValueAsString(followerList);
-            kafkaTemplate.send("user_topic", followerList.getId().toString(), json);
+            kafkaTemplate.send("user_topic", followerList.getUserId().toString(), json);
             logger.info("Message sent");
         } catch (JsonProcessingException e) {
             logger.error("Error: when sending kafka message" + e.getMessage());

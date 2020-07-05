@@ -59,6 +59,7 @@ services:
   consumer:
     build: consumer
     container_name: consumer
+    entrypoint: /wait-for-it.sh cassandra:9042 -- java -jar app.jar
     depends_on:
       - kafka
       - cassandra

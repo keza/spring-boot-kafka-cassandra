@@ -8,7 +8,7 @@ import java.util.UUID;
 @Data
 public class UserFollowerList {
 
-    private UUID id;
+    private UUID userId;
 
     private List<UUID> followerList;
 }
