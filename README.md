@@ -1,4 +1,4 @@
-![Java CI with Maven](https://github.com/keza/spring-boot-kafka-cassandra/workflows/Java%20CI%20with%20Maven/badge.svg)
+![Java CI with Maven](https://github.com/keza/spring-boot-kafka-cassandra/workflows/Java%20CI%20with%20Maven/badge.svg?branch=master)
 
 # Spring Boot + Kafka + Apache Cassandra 
 
