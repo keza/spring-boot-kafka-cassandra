@@ -1,3 +1,5 @@
+![Java CI with Maven](https://github.com/keza/spring-boot-kafka-cassandra/workflows/Java%20CI%20with%20Maven/badge.svg)
+
 # Spring Boot + Kafka + Apache Cassandra 
 
 This is an example **Spring Boot + Apache Kafka + Apache Cassandra** app.
